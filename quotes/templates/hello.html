@@ -8,8 +8,19 @@
 
 {% extends 'base.html' %}
 {% block content %}
-<h1>Hello</h1>
-{{ api }}
+    <h1>Hello</h1>
+
+    {{ api }}
+    {% if api %}
+        {% if api == "Error..." %}
+            There was a problem with your ticket symbol,
+            please try again...
+        {% else %}
+            {% for key, value in api.items %}
+                {{ key }}: {{ value }}<br>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
 {% endblock %}
 </body>
 </html>
