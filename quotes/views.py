@@ -2,6 +2,9 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from quotes.models import Stock
+
+
 def home(request):
     # pk_18020125b9404116be195d47eee8f33e
     import requests
@@ -26,4 +29,5 @@ def about(request):
 
 
 def add_stock(request):
-    return render(request, 'addStock.html', {})
+    ticker = Stock.objects.all()
+    return render(request, 'addStock.html', {'ticker': ticker})
