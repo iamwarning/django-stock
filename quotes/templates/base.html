@@ -38,6 +38,17 @@
 </nav>
 <main>
     <div class="container">
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div><br>
+            {% endfor %}
+        {% endif %}
         {% block content %}
         {% endblock %}
     </div>
